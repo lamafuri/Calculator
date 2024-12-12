@@ -5,12 +5,13 @@ let result = "";
 let arr = Array.from(buttons);
 arr.forEach(but =>{
     but.addEventListener('click',(e)=>{
-        if(e.target.innerHTML == "="){ //Take the inner HTML of the element where event "click" occured
-
-            //target property is the read only and it returns the element where the event occured
-
-            result = eval(result);//If we click "=", evaluate the text/expression inside the string so that we obtain our calculted result
-            // input.value = result;
+        if(e.target.innerHTML == "="){ 
+            try {
+                result = eval(result);
+                
+            } catch (error) {
+                result = "Error: syntax"
+            }
         }
         else if(e.target.innerHTML == "AC"){
             result ="";
